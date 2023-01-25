@@ -22,12 +22,12 @@ export const SearchAndSortBar = ({
 }) => {
   const defaultOptions = [
     { name: t`A-Z`, value: SORT_TYPES.ALPHABETIC },
-    { name: t`Utilization ratio`, value: SORT_TYPES.UTILIZATION_RATIO },
+    { name: t`Utilization Ratio`, value: SORT_TYPES.UTILIZATION_RATIO },
     { name: t`Liquidity`, value: SORT_TYPES.LIQUIDITY }
   ]
 
   const options = searchAndSortOptions ?? defaultOptions
-  const [selected, setSelected] = useState(options[0])
+  const [selected, setSelected] = useState(options[1])
 
   return (
     <div
@@ -45,6 +45,7 @@ export const SearchAndSortBar = ({
           autoComplete='off'
           className={classNames(
             'w-full pr-12 py-3 border border-B0C4DB bg-white rounded-lg placeholder-9B9B9B focus:outline-none',
+            loading && 'cursor-not-allowed',
             inputClass, reportingResolved ? 'pl-12' : 'pl-4'
           )}
           placeholder={t`Search`}
